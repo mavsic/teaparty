@@ -1,5 +1,9 @@
+@charset "utf-8";
+
 @import 'config';
 @import 'utility';
+@import 'grid';
+@import 'typography';
 
 * {
     box-sizing: border-box;
@@ -7,29 +11,4 @@
 
 body {
     margin: 0;
-    font-family: $font-stack;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-}
-
-.row {
-    display: flex;
-    align-items: flex-start;
-    margin: 0 ($outer-margin - $column-spacing / 2)
-}
-
-.col {
-    padding: $column-spacing / 2;
-    background: silver;
-    background-clip: content-box;
-    
-    &:last-child {
-        margin-right: 0;
-    }
-}
-
-@for $i from 1 through $column-count {
-    .col-#{$i} {
-        width: $i / $column-count * 100%;
-    }
 }

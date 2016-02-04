@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+body {
+    font-family: $font-stack;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+%text-block {
+    margin-top: 0;
+    @include margin-bottom-except-last(blh(0.5));
+}
+
+p {
+    @extend %text-block;
+}
+
+blockquote {
+    @extend %text-block;
+    margin-left: blh(1);
+}
+
+ul, ol {
+    @extend %text-block;
+    list-style: none;
+    padding-left: blh(1);
+}
+
+ol {
+    counter-reset: list-counter;
+}
+
+%list-bullet {
+    display: inline-block;
+    margin-left: blh(-1);
+    width: blh(1);
+}
+
+ol > li::before {
+    @extend %list-bullet;
+    content: counter(list-counter) '.';
+    counter-increment: list-counter;
+}
+
+ul > li::before {
+    @extend %list-bullet;
+    content: '―';
+}
+
+h1 {
+    @extend %text-block;
+    @include margin-top-except-first(blh(2));
+    line-height: blh(1.5);
+    font-size: bfs(2);
+}
+
+h2 {
+    @extend %text-block;
+    @include margin-top-except-first(blh(1.5));
+    line-height: blh(1);
+    font-size: bfs(1.6);
+}
+
+h3 {
+    @extend %text-block;
+    @include margin-top-except-first(blh(1));
+    font-size: bfs(1.3);
+}

@@ -1,7 +1,25 @@
+@charset "utf-8";
+
 @function bfs($multiplier) {
     @return $base-font-size * $multiplier;
 }
 
 @function blh($multiplier) {
     @return $base-line-height * $multiplier;
+}
+
+@mixin margin-top-except-first($margin-top) {
+    margin-top: $margin-top;
+    
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin margin-bottom-except-last($margin-bottom) {
+    margin-bottom: $margin-bottom;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
 }

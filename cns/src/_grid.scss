@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+.container {
+    max-width: $max-width;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 $outer-margin - $column-spacing / 2;
+}
+
+%col {
+    padding: 0 $column-spacing / 2;
+}
+
+@for $i from 1 through $column-count {
+    .col-#{$i} {
+        @extend %col;
+        width: percentage($number: $i / $column-count);
+    }
+}
+
+@for $i from 1 to $column-count {
+    .col-push-#{$i} {
+        margin-left: percentage($number: $i / $column-count);
+    }
+}
+
+// Responsiveness is probably not necessary, the following is for experimental use:
+@media screen and (max-width: $mobile-max-width) {
+    .row {
+        flex-flow: column;
+    }
+    
+    @for $i from 1 to $column-count {
+        .col-#{$i} {
+            width: 100%;
+        }
+    }
+}
