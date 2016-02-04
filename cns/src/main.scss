@@ -1,0 +1,37 @@
+@import 'config';
+@import 'utility';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: $font-stack;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 $outer-margin;
+}
+
+.col {
+    padding: $column-padding;
+    margin-right: $column-spacing;
+    background: silver;
+    
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+@for $i from 1 through $column-count {
+    .col-#{$i} {
+        $percent-per-col: $i / $column-count * 100%;
+        $spacing-per-col: $column-spacing * (1 - $i / $column-count);
+        width: calc(#{$percent-per-col} - #{$spacing-per-col});
+    }
+}

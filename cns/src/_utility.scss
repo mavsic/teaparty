@@ -1,0 +1,7 @@
+@function bfs($multiplier) {
+    @return $base-font-size * $multiplier;
+}
+
+@function blh($multiplier) {
+    @return $base-line-height * $multiplier;
+}
