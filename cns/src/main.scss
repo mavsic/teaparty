@@ -15,13 +15,13 @@ body {
 .row {
     display: flex;
     align-items: flex-start;
-    padding: 0 $outer-margin;
+    margin: 0 ($outer-margin - $column-spacing / 2)
 }
 
 .col {
-    padding: $column-padding;
-    margin-right: $column-spacing;
+    padding: $column-spacing / 2;
     background: silver;
+    background-clip: content-box;
     
     &:last-child {
         margin-right: 0;
@@ -30,8 +30,6 @@ body {
 
 @for $i from 1 through $column-count {
     .col-#{$i} {
-        $percent-per-col: $i / $column-count * 100%;
-        $spacing-per-col: $column-spacing * (1 - $i / $column-count);
-        width: calc(#{$percent-per-col} - #{$spacing-per-col});
+        width: $i / $column-count * 100%;
     }
 }
