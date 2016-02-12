@@ -8,7 +8,7 @@ body {
 
 %text-block {
     margin-top: 0;
-    @include margin-bottom-except-last(blh(0.5));
+    @include mb-not-last(blh(0.5));
 }
 
 p {
@@ -49,20 +49,20 @@ ul > li::before {
 
 h1 {
     @extend %text-block;
-    @include margin-top-except-first(blh(2));
+    @include mt-not-first(blh(2));
     line-height: blh(1.5);
     font-size: bfs(2);
 }
 
 h2 {
     @extend %text-block;
-    @include margin-top-except-first(blh(1.5));
+    @include mt-not-first(blh(1.5));
     line-height: blh(1);
     font-size: bfs(1.6);
 }
 
 h3 {
     @extend %text-block;
-    @include margin-top-except-first(blh(1));
+    @include mt-not-first(blh(1));
     font-size: bfs(1.3);
 }

@@ -8,7 +8,7 @@
     @return $base-line-height * $multiplier;
 }
 
-@mixin margin-top-except-first($margin-top) {
+@mixin mt-not-first($margin-top) {
     margin-top: $margin-top;
     
     &:first-child {
@@ -16,7 +16,7 @@
     }
 }
 
-@mixin margin-bottom-except-last($margin-bottom) {
+@mixin mb-not-last($margin-bottom) {
     margin-bottom: $margin-bottom;
     
     &:last-child {
