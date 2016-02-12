@@ -1,0 +1,26 @@
+.button {
+    $inner-margin: (blh(1.5) - bfs(1)) / 2 - 1px;
+    
+    display: inline-block;
+    position: relative;
+    border: 1px solid transparentize($color: $control-border-color, $amount: 0.3);
+    border-radius: $control-border-radius;
+    line-height: blh(1.5) - 2px;
+    padding: 0 $inner-margin;
+    cursor: pointer;
+    
+    &:hover {
+        border-color: $control-border-color;
+    }
+    
+    &:focus {
+        border-color: $focus-glow-color;
+        box-shadow: 0 0 $inner-margin $focus-glow-color;
+        outline: none;
+    }
+    
+    &:active {
+        border-color: $control-border-color;
+        box-shadow: inset 0 $inner-margin / 4 $inner-margin / 2 transparentize($color: $control-border-color, $amount: 0.3);
+    }
+}
